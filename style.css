@@ -1,0 +1,527 @@
+/**
+ * ====================================================================
+ * ATM MANAGEMENT SYSTEM - PHONE-SIZE RESPONSIVE STYLES (style.css)
+ * ====================================================================
+ * Compact ~400px phone-sized ATM terminal designed for both
+ * Mobile and Desktop screens without awkward scrolling.
+ */
+
+:root {
+    --bg-outer: radial-gradient(circle at 20% 20%, #e4edf8 0%, #c6d7ee 60%, #9db9df 100%);
+    --atm-frame: linear-gradient(180deg, #323c46 0%, #1f262d 100%);
+    --screen-bg: linear-gradient(180deg, #0a307a 0%, #061c4d 55%, #030f2e 100%);
+    --btn-blue: linear-gradient(180deg, #1b76e6 0%, #0d51ab 100%);
+    --btn-green: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
+    --btn-red: linear-gradient(180deg, #c62828 0%, #8e0000 100%);
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: "Consolas", "Courier New", monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg-outer);
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    color: #ffffff;
+}
+
+/* ====================================================================
+   COMPACT PHONE-SIZE ATM FRAME (Works on Mobile & Desktop)
+   ==================================================================== */
+.atm-phone-shell {
+    width: 100%;
+    max-width: 400px;
+    background: var(--atm-frame);
+    border-radius: 26px;
+    padding: 12px;
+    border: 3px solid #4d5a68;
+    box-shadow: 
+        0 20px 50px rgba(8, 22, 48, 0.45),
+        inset 0 2px 3px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Top Illuminated Bank Canopy */
+.atm-canopy {
+    background: linear-gradient(180deg, #0b2d70 0%, #061d4a 100%);
+    border-radius: 16px 16px 8px 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1.5px solid #2659b5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.canopy-logo svg {
+    width: 32px;
+    height: 32px;
+    fill: #ffffff;
+}
+
+.canopy-title {
+    font-size: 1.45rem;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+    line-height: 1;
+}
+
+.canopy-sub {
+    font-size: 0.72rem;
+    color: #9ec5ff;
+    margin-top: 2px;
+}
+
+/* ====================================================================
+   ATM DIGITAL TOUCH SCREEN
+   ==================================================================== */
+.atm-screen {
+    background: var(--screen-bg);
+    border-radius: 16px;
+    border: 2.5px solid #1e4b9b;
+    box-shadow: 
+        inset 0 0 24px rgba(0, 110, 255, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+/* Top Status Bar */
+.screen-header {
+    background: rgba(3, 15, 42, 0.8);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(63, 148, 255, 0.3);
+    font-size: 0.72rem;
+    color: #9ec2ff;
+}
+
+.screen-header-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00ff66;
+    box-shadow: 0 0 6px #00ff66;
+    flex-shrink: 0;
+}
+
+.screen-header-right {
+    font-family: var(--font-mono);
+    color: #00d2ff;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+}
+
+/* Screen Body */
+.screen-body {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.atm-view-screen {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    animation: fadeInView 0.22s ease-out;
+}
+
+@keyframes fadeInView {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Welcome Block */
+.welcome-block {
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.welcome-block svg {
+    width: 34px;
+    height: 34px;
+    fill: #ffffff;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+}
+
+.welcome-greeting {
+    font-size: 0.8rem;
+    color: #a8cbff;
+    margin-top: 4px;
+}
+
+.welcome-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+}
+
+.welcome-sub {
+    font-size: 0.75rem;
+    color: #84b3fa;
+    margin-top: 2px;
+}
+
+/* Subscreen Header */
+.subscreen-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+
+.subscreen-header h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+/* Forms & Inputs */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #a4ceff;
+    margin-bottom: 5px;
+    letter-spacing: 0.4px;
+}
+
+.screen-input {
+    width: 100%;
+    background: rgba(3, 16, 44, 0.88);
+    border: 1.5px solid #2365bd;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 10px 12px;
+    outline: none;
+    font-family: var(--font-mono);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.screen-input:focus {
+    border-color: #00d2ff;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.45);
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    background: var(--btn-green);
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: transform 0.1s, filter 0.15s;
+    margin-top: 6px;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background: var(--btn-blue);
+    border: 1px solid #4b9bff;
+}
+
+.btn-back {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-back:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.btn-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    gap: 8px;
+}
+
+.btn-chip {
+    flex: 1;
+    background: rgba(0, 210, 255, 0.12);
+    border: 1px solid rgba(0, 210, 255, 0.35);
+    color: #a8e6ff;
+    border-radius: 8px;
+    padding: 8px 6px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s;
+}
+
+.btn-chip:hover {
+    background: rgba(0, 210, 255, 0.25);
+    color: #ffffff;
+}
+
+.btn-exit {
+    width: 100%;
+    background: var(--btn-red);
+    border: 1px solid #ef5350;
+    color: #ffffff;
+    padding: 11px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.btn-exit:hover {
+    filter: brightness(1.12);
+}
+
+/* Main Services Menu Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 8px 0 16px 0;
+}
+
+.service-btn {
+    background: var(--btn-blue);
+    border: 1.5px solid #4297ff;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.12s, box-shadow 0.15s;
+    text-align: center;
+}
+
+.service-btn:hover {
+    box-shadow: 0 0 14px rgba(66, 151, 255, 0.55);
+    transform: translateY(-2px);
+}
+
+.service-btn:active {
+    transform: scale(0.97);
+}
+
+.service-icon {
+    font-size: 1.6rem;
+}
+
+/* User Active Pill on Dashboard */
+.user-session-card {
+    background: rgba(3, 18, 52, 0.75);
+    border: 1px solid rgba(66, 151, 255, 0.35);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+}
+
+.session-bal-highlight {
+    color: #00ffaa;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+/* Balance Check Card */
+.balance-card {
+    background: rgba(3, 20, 56, 0.88);
+    border: 2px solid #2b77e5;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    margin: 8px 0 14px 0;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.bal-label {
+    font-size: 0.75rem;
+    color: #92bdf8;
+    letter-spacing: 1px;
+}
+
+.bal-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #00ffaa;
+    text-shadow: 0 0 14px rgba(0, 255, 170, 0.5);
+    font-family: var(--font-mono);
+    margin: 8px 0;
+}
+
+.bal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    font-size: 0.78rem;
+    text-align: left;
+}
+
+.bal-meta-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meta-label {
+    color: #8cb6eb;
+}
+
+/* Fast Cash Preset Grid */
+.fast-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.fast-btn {
+    background: rgba(20, 82, 170, 0.7);
+    border: 1px solid #3f8df2;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 9px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.fast-btn:hover {
+    background: #1b6de0;
+}
+
+/* Alert Notification Box */
+.atm-alert-box {
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: none;
+    text-align: center;
+    line-height: 1.35;
+}
+
+/* Cash Dispensed Banner inside Screen */
+.cash-dispense-banner {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    border: 1.5px solid #00ffaa;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 12px;
+    display: none;
+    animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.85); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.cash-dispense-banner .cash-title {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.cash-dispense-banner .cash-sub {
+    font-size: 0.75rem;
+    color: #b9f6ca;
+    margin-top: 3px;
+}
+
+/* Bottom Footer Strip */
+.atm-bottom-strip {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #8899aa;
+    padding: 2px 0;
+    letter-spacing: 0.5px;
+}
+
+/* Small Mobile Adjustment */
+@media (max-width: 420px) {
+    body {
+        padding: 6px;
+    }
+
+    .atm-phone-shell {
+        border-radius: 20px;
+        padding: 10px;
+    }
+
+    .atm-screen {
+        min-height: 470px;
+    }
+
+    .bal-value {
+        font-size: 1.75rem;
+    }
+}
